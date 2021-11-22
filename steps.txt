@@ -1,0 +1,59 @@
+1--------------------------------
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-wizard',
+  template: '<ng-content></ng-content>',
+  styleUrls: ['./wizard.component.css']
+})
+export class WizardComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+
+2-------------------
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-wizard',
+  template: '<ng-content></ng-content>',
+  styleUrls: ['./wizard.component.css']
+})
+export class WizardComponent implements OnInit {
+
+  constructor() { }
+
+  registerStep(step: any) {
+     // ...
+  }
+
+  ngOnInit(): void {
+  }
+
+}
+
+
+import { Component, OnInit } from '@angular/core';
+import { WizardComponent } from '../wizard/wizard.component';
+
+@Component({
+  selector: 'app-step-one',
+  template: 'ste[-one-works',
+  styleUrls: ['./step-one.component.css']
+})
+export class StepOneComponent implements OnInit {
+
+  constructor(private wizard: WizardComponent) {
+    wizard.registerStep(this);
+  }
+
+  ngOnInit(): void {
+  }
+
+}
