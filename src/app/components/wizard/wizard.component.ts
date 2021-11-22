@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ContentChildren, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { StepComponent } from '../step/step.component';
+import { Component, ContentChildren, QueryList } from '@angular/core';
+import { WizardStepDirective } from 'src/app/directives/wizard-step.directive';
 
 @Component({
   selector: 'app-wizard',
@@ -8,7 +8,7 @@ import { StepComponent } from '../step/step.component';
 })
 export class WizardComponent {
 
-  @ContentChildren(StepComponent) steps!: QueryList<StepComponent>;
+  @ContentChildren(WizardStepDirective) steps!: QueryList<WizardStepDirective>;
 
   constructor() { }
 
