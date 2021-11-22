@@ -1,4 +1,4 @@
-import { Component, ContentChildren, QueryList } from '@angular/core';
+import { Component, ContentChildren, ElementRef, QueryList } from '@angular/core';
 import { WizardStepDirective } from 'src/app/directives/wizard-step.directive';
 
 @Component({
@@ -8,7 +8,7 @@ import { WizardStepDirective } from 'src/app/directives/wizard-step.directive';
 })
 export class WizardComponent {
 
-  @ContentChildren(WizardStepDirective) steps!: QueryList<WizardStepDirective>;
+  @ContentChildren(WizardStepDirective, { read: ElementRef }) steps!: QueryList<ElementRef>;
 
   constructor() { }
 
