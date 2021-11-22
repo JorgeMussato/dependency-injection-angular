@@ -1,28 +1,17 @@
-import { AfterViewInit, Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ContentChildren, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { StepComponent } from '../step/step.component';
 
 @Component({
   selector: 'app-wizard',
-  template: '<app-step *ngFor="let i of allSteps"></app-step>',
+  template: '<ng-content></ng-content>',
   styleUrls: ['./wizard.component.css']
 })
-export class WizardComponent implements AfterViewInit {
+export class WizardComponent {
 
-  allSteps = [1, 2, 3, 4];
+  @ContentChildren(StepComponent) steps!: QueryList<StepComponent>;
 
-  @ViewChildren(StepComponent) steps!: QueryList<StepComponent>;
+  constructor() { }
 
-  constructor() {
-    // undefined, pois a view não começou ainda.
-    console.log(this.steps);
-  }
-
-  ngAfterViewInit(): void {
-    // Depois da view inicializada, step existe e está disponível para uso!
-    console.log(this.steps);
-    this.steps.changes.subscribe(() => {
-      console.log('Now exists ' + this.steps.length + ' steps.');
-    })
-  }
+  // Implementação...
 
 }
