@@ -1,18 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { WizardComponent } from '../wizard/wizard.component';
+import { WizardStepService } from 'src/app/interfaces/wizard-step-service';
 
 @Component({
   selector: 'app-step-one',
-  template: 'ste[-one-works',
-  styleUrls: ['./step-one.component.css']
+  template: 'step-one-works',
+  styleUrls: ['./step-one.component.css'],
+  providers: [
+    { provide: WizardStepService, useExisting: forwardRef(() => StepOneComponent) }
+  ]
 })
-export class StepOneComponent implements OnInit {
+export class StepOneComponent implements OnInit, WizardStepService {
 
-  constructor(private wizard: WizardComponent) {
-    wizard.registerStep(this);
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  next(): void {
+    throw new Error('Method not implemented.');
+  }
+  
+  back(): void {
+    throw new Error('Method not implemented.');
   }
 
 }
