@@ -7,7 +7,7 @@ import { WizardStepService } from 'src/app/interfaces/wizard-step-service';
   styleUrls: ['./step-one.component.css'],
   // quase funciona, porém falta algo...
   providers: [
-    { provide: WizardStepService, useExisting: StepOneComponent }
+    { provide: WizardStepService, useExisting: forwardRef(() => StepOneComponent) }
   ]
 })
 export class StepOneComponent implements OnInit, WizardStepService {
