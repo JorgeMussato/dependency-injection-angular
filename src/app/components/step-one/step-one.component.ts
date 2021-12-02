@@ -5,7 +5,6 @@ import { WizardStepService } from 'src/app/interfaces/wizard-step-service';
   selector: 'app-step-one',
   template: 'step-one-works',
   styleUrls: ['./step-one.component.css'],
-  // quase funciona, porém falta algo...
   providers: [
     { provide: WizardStepService, useExisting: forwardRef(() => StepOneComponent) }
   ]
